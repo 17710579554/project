@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+        }
+        .pai{
+            width: 200px;
+            height: 260px;
+            transform-style: preserve-3d;
+            transition: 1s;
+            float: left;
+            margin-right: 15px;
+            margin-top:15px
+        }
+        .text{
+            width: 200px;
+            height: 260px;
+            border: 1px solid #e5e5e5;
+            background-color: cadetblue;
+            color: #fff;
+            text-align: center;
+            line-height: 260px;
+            font-size: 30px;
+            transform: rotateY(180deg);
+        }
+        .bg{
+            width: 200px;
+            height: 260px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+      
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pai">
+        <div class="bg"></div>
+        <div class="text">咖啡</div>
+        
+    </div>
+    <div class="pai">
+        <div class="bg"></div>
+        <div class="text">咖啡</div>
+        
+    </div>
+    <div class="pai">
+        <div class="bg"></div>
+        <div class="text">咖啡</div>
+        
+    </div>
+    <div class="pai">
+        <div class="bg"></div>
+        <div class="text">咖啡</div>
+        
+    </div>
+</body>
+<script>
+    var trun = 0
+    window.onload = function() {
+        var oPai = document.querySelector(".pai")
+        
+        oPai.onclick = function(){
+            trun+=180
+            if(trun === 360){
+                trun = 0
+            }
+            this.style.transform='rotateY('+trun+'deg)'
+        }
+
+    }
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str ="How are you"
+    var arr = str.split(" ")
+    console.log(arr)
+    var arr2 = []
+   for(var i =0;i<arr.length;i++){
+       arr2.push(arr[i].split('').reverse().join(''))
+       arr.splice(i,1,arr[i].split('').reverse().join(''))
+   }
+   console.log(arr.join(" "))
+
+   
+</script>
+</html>

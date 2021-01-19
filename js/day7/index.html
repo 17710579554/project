@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+        }
+        #aimg{
+            width: 350px;
+            height: 225px;
+        }
+        #bimg{
+            width: 350px;
+            height: 225px;
+        }
+        #cimg{
+            width: 350px;
+            height: 225px;
+        }
+    </style>
+</head>
+<body>
+    <img src="../img/微信图片_202012211344511.jpg" alt="" id="aimg">
+    <img src="../img/微信图片_202012211344513.jpg" alt="" id="bimg">
+    <img src="../img/微信图片_202012211344512.jpg" alt="" id="cimg">
+
+</body>
+<script>
+window.onload = function () {
+        var bImg = document.getElementById('aimg')
+        // console.log(bImg)
+        var sImg1 = document.getElementById('bimg')
+        var sImg2 = document.getElementById('cimg')
+        sImg1.onclick = function () {
+            bImg.src = sImg1.src
+        }
+        sImg2.onclick = function(){
+            bImg.src = sImg2.src
+        }
+    }
+</script>
+</html>

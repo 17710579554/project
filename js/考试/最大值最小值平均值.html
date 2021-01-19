@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var arr=[9,68,79,15,12,23,89,106]
+    var min =arr[0]
+    var max =arr[0]
+    arr.forEach(function (item,index){
+        if(item > max){
+            max=item
+        }
+        if(item < min){
+            min =item
+        }
+        q=0
+        for (let i = 0; i<arr.length; i++){
+            q +=arr[i]
+        }
+    })
+    console.log("平均值" + q / arr.length)
+    console.log("最小值" + max)
+    console.log("最大值" + min)
+</script>

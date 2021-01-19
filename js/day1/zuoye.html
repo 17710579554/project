@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+    <input type="text" name="num" id="num">
+    <button id="clicka">确定</button>
+</body>
+<script>
+    var i;
+    var a;
+    //	能手写乘法口诀表,第二天用纸默写
+    //  for(i=1;i<=9;i++){
+    //      for(a=1;a<=9;a++){
+    //          document.write(i + '*' + a + '=' + i*a + '<br>')
+    //      }
+    //  }
+
+        // 循环1-100之间的所有数据，如果是偶数进行加一输出  如果是奇数进行减一输出
+    //  for(i=1;i<=100;i++){
+    //      if(i%2==0){
+    //          console.log(i + 1)
+    //      }else{
+    //          console.log(i - 1)
+    //      }
+    //  }
+
+    //	针对switch case练习
+    $(document).on('click','#clicka',function(){
+        // 		输入钱数，根据钱的多少决定午饭吃什么
+        var num = $('#num').val();
+        // console.log(num)
+        num = parseInt(num);
+        switch(num){
+            case 10:
+                x = "黄焖鸡";
+                break;
+            case 20:
+                x = "是浩然";
+                break;
+            case 50:
+                x = "卤蛋";
+                break;
+            default :
+                x = "666";
+                break;
+        }
+        console.log(x);
+        		//输入年龄 判定是少年青年中年老年
+        switch(true){
+            case num < 16:
+                console.log("少年");
+                break;
+            case num < 25:
+                console.log("青年");
+                break;
+            case num < 45:
+                console.log("中年");
+                break;
+            case num < 100:
+                console.log("老年");
+                break;
+            default:
+                break;
+        }
+
+            //     3.输入年份，判断是否是闰年
+        // 条件：①能被4并且不能被100整除
+        //  ②或者能被400整除
+        //  if(num % 4 == 0 && num % 100 != 0){
+        //      alert("闰年");
+        //  }else if(num % 400 == 0){
+        //      alert("闰年");
+        //  }else{
+        //      alert("不是闰年");
+        //  }
+        
+    })
+
+
+
+</script>
+</html>

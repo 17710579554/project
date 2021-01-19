@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .banner {
+            width: 600px;
+            height: 400px;
+            margin: 50px auto 0;
+            position: relative;
+        }
+
+        .banner_box {
+            width: 600px;
+            height: 400px;
+            position: relative;
+        }
+
+        .banner_box>img {
+            width: 600px;
+            height: 400px;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .banner_btn {
+            width: 30px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0 3);
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            color: red;
+            font-size: 32px;
+            text-align: center;
+            line-height: 60px;
+            cursor: pointer;
+            display: none;
+            transition: 0.3s;
+        }
+
+        .banner_btn_left {
+            left: 0;
+        }
+
+        .banner_btn_right {
+            right: 0;
+        }
+
+        .banner:hover .banner_btn {
+            display: block;
+        }
+
+        .banner_point {
+            width: 125px;
+            height: 15px;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -62px;
+        }
+
+        .banner_point_child {
+            width: 15px;
+            height: 15px;
+            background-color: #e5e5e5;
+            border-radius: 15px;
+            float: left;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .banner_point_active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="banner_box">
+            <img src="../img/微信图片_202012211344515.jpg" alt="">
+            <img src="../img/微信图片_202012211344511.jpg" alt="">
+            <img src="../img/微信图片_202012211344512.jpg" alt="">
+            <img src="../img/微信图片_202012211344513.jpg" alt="">
+            <img src="../img/微信图片_202012211344514.jpg" alt="">
+        </div>
+        <div class="banner_point">
+            <div class="banner_point_child"></div>
+            <div class="banner_point_child"></div>
+            <div class="banner_point_child"></div>
+            <div class="banner_point_child"></div>
+            <div class="banner_point_child"></div>
+        </div>
+        <div class="banner_btn_left banner_btn">
+            <</div>
+                <div class="banner_btn_right banner_btn">></div>
+        </div>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        var initNum = 0
+        var interVal = null
+        var imgList = document.querySelectorAll('.banner_box img')
+        var pointList = document.querySelectorAll('.banner_point_child')
+        var oBanner = document.querySelector('.banner')
+
+        imgList[initNum].style.display = "block"
+        pointList[initNum].setAttribute("class", 'banner_point_child banner_point_active')
+        var toRigth = document.querySelector(".banner_btn_right")
+        var toLeft = document.querySelector(".banner_btn_left")
+        toRigth.onclick = function () { change(++initNum) }
+        toLeft.onclick = function () { change(--initNum) }
+
+        function change(index) {
+            initNum = index
+            if (initNum > imgList.length - 1) {
+                initNum = 0
+            }
+            if (initNum < 0) {
+                initNum = imgList.length - 1
+            }
+            for (var i = 0; i < imgList.length; i++) {
+                imgList[i].style.display = "none"
+                pointList[i].setAttribute("class", 'banner_point_child')
+            }
+            imgList[initNum].style.display = "block"
+            pointList[initNum].setAttribute("class", 'banner_point_child banner_point_active')
+        }
+        for (var i = 0; i < pointList.length; i++) {
+            pointList[i].index = i
+            pointList[i].onclick = function () {
+                change(this.index)
+            }
+        }
+        function inter() {
+            interVal = setInterval(function () {
+                change(++initNum)
+            }, 1500)
+        }
+        inter()
+        oBanner.onmouseenter = function () {
+            clearInterval(interVal)
+        }
+        oBanner.onmouseleave = function () {
+            inter()
+        }
+    }
+</script>

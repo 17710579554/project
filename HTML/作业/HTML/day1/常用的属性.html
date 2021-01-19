@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            width: 200px;
+            height: 100px;
+            color: darkblue;
+        }
+        .app{
+            width: 200px;
+            height: 100px;
+            overflow:auto;
+            /* white-space:nowrap;
+            overflow:hidden; */
+            text-overflow: ellipsis
+        }
+        ul {
+            width: 900px;
+            height: 30px;
+            background-color: darkblue;
+        }
+        li{
+          display: inline; /*变成行内元素*/
+          color: #ffffff; 
+         line-height: 30px;  /**行高*/
+         margin-right: 20px; /*间距*/
+          font-size: 18px; /*字体大小*/
+        }
+        /*字体滑过字体变颜色*/
+       ul li:hover{
+            background-color: #000000;
+       }
+    </style>
+</head>
+<body>
+    <!-- <div style="color: red; font-size: 100px;"> helloworld</div>
+
+    <span >
+        <p class="app">效果测试效果测试效果测试效果 果测试效果  测试效果测试效果测试效果测试效果测试效
+            测试效果测试效果测试效果测试效果测试效测试效果测试效果测试效果测试效果测试效
+        </p>
+    </span> -->
+
+    <ul>
+        <li>首页</li>
+        <li>最新电影</li>
+        <li>新闻头条</li>
+        <li>八卦娱乐</li>
+        <li>军事热点</li>
+        <li>热门游戏</li>
+        <li>今日特价</li>
+    </ul>
+</body>
+</html>

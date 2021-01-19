@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn1">全选</button>
+    <button class="btn2">全不选</button>
+    <button class="btn3">反选</button>
+    <input type="checkbox" name="" id="">吃饭
+    <input type="checkbox" name="" id="">睡觉
+    <input type="checkbox" name="" id="">学习
+    <input type="checkbox" name="" id="">玩游戏
+    
+</body>
+<script>
+    var btn1 =document.querySelector('.btn1')
+    var btn2 =document.querySelector('.btn2')
+    var btn3 =document.querySelector('.btn3')
+    var oTn =document.querySelectorAll('input')
+    btn1.onclick=function(){
+    for(var i in oTn){
+        oTn[i].checked =true
+    }
+}
+btn2.onclick=function(){
+    for(var i in oTn){
+        oTn[i].checked =false
+    }
+}
+btn3.onclick=function(){
+    for(var i in oTn){
+        oTn[i].checked = ! oTn[i].checked
+    }
+}
+</script>
+</html>

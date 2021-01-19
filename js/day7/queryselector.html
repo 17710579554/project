@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="p1">1</p>
+    <p class="p1">2</p>
+    <p class="p1">3</p>
+    <p class="p1">4</p>
+    <p class="p1">5</p>
+</body>
+<script>
+     window.onload = function(){
+        console.log(this)
+        var opList = document.querySelectorAll('.p1');
+        for(let i in opList){
+            opList[i].onclick = function(){
+                console.log(this)
+                for(var j = 0;j<opList.length;j++){
+                    opList[j].style.backgroundColor = 'brown'
+                }
+                this.style.backgroundColor = 'green'
+            }
+        }
+    }
+</script>                      
+</html>

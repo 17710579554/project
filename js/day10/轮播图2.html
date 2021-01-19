@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            width: 600px;
+            height: 400px;
+            margin: 50px auto 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .banner_box {
+            width: 3000px;
+            transition: 0.3s;
+            position: absolute;
+            left: 0px;
+            /* transform: translate(-600px); */
+        }
+
+        /* .banner_child {
+            width: 600px;
+            height: 400px;
+            float: left;
+        } */
+
+        img.banner_child_pic {
+            width: 600px;
+            height: 400px;
+            float: left
+        }
+
+        .banner_btn {
+            width: 125px;
+            height: 15px;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -62px;
+        }
+
+        .banner_btn_child {
+            width: 15px;
+            height: 15px;
+            background-color: #f5f5f5;
+            float: left;
+            margin: 0 5px;
+            border-radius: 15px;
+            cursor: pointer;
+
+        }
+
+        .banner_btn_active {
+            background-color: red;
+        }
+
+        .banner_btn_big {
+            width: 30px;
+            height: 60px;
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            background-color: rgba(0, 0, 0, 0.3);
+            /* border-radius: 0 5px; */
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+            transition: 0.5s;
+        }
+
+        .banner:hover .banner_btn_big {
+            display: block;
+        }
+
+        .banner_btn_left {
+            left: 0;
+        }
+
+        .banner_btn_right {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="banner_box">
+        <img src="../img/微信图片_20201221134451.jpg" alt="" class="banner_child_pic">
+        <img src="../img/微信图片_202012211344511.jpg" alt=""  class="banner_child_pic">
+        <img src="../img/微信图片_202012211344512.jpg" alt="" class="banner_child_pic">
+        <img src="../img/微信图片_202012211344513.jpg" alt=""  class="banner_child_pic">
+        <img src="../img/微信图片_202012211344514.jpg" alt=""  class="banner_child_pic">
+        <div class="banner_btn">
+
+        </div>
+
+        <div class="banner_btn_left banner_btn_big">
+            </div>
+                <div class="banner_btn_right banner_btn_big"> > </div>
+
+
+        </div>
+</body>
+<script>
+var initNum = 0
+var interVal = null
+var picWidth = 600
+var imageList = document.querySelectorAll(".banner_child_pic")
+var toRight = document.querySelector('.banner_btn_right')
+var toLeft = document.querySelector(".banner_btn_left")
+var bannerBox = document.querySelector(".banner_box");
+var oBanner = document.querySelector('.banner')
+
+
+var bannerBtn = document.querySelector(".banner_btn")
+
+bannerBtn.style.width = 25*imageList.length +"px"
+bannerBtn.style.marginLeft = -25*imageList.length/2 +"px"
+for(var i = 0;i<imageList.length;i++){
+    var point = document.createElement("div")
+    point.setAttribute('class',"banner_btn_child")
+    point.index = i
+    point.onclick = function(){
+        change(this.index)
+    }
+    bannerBtn.appendChild(point)
+}
+
+var bannerBtnList = bannerBtn.children
+
+change(initNum)
+
+
+toRight.onclick = function(){
+    
+
+    change(++initNum)
+}
+
+toLeft.onclick = function(){
+    change(--initNum)
+}
+
+
+function change(index){
+    initNum = index
+    if(initNum<0){
+        initNum = imageList.length-1
+    }
+    if(initNum>imageList.length-1){
+        initNum = 0
+    }
+    for(var i = 0;i<bannerBtnList.length;i++){
+        bannerBtnList[i].style.backgroundColor = "#f5f5f5"
+    }
+    bannerBtnList[initNum].style.backgroundColor = "red"
+    bannerBox.style.left = -(initNum*picWidth) + "px"
+}
+// 定义自动切换方法
+function inter() {
+    interVal = setInterval(function () {
+        change(++initNum)
+    }, 1000)
+}
+inter()
+oBanner.onmouseenter = function () {
+    clearInterval(interVal)
+}
+// 鼠标移出后自动播放
+oBanner.onmouseleave = function () {
+    inter()
+}
+
+</script>
+</html>

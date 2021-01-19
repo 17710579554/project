@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var num = 123;
+    var str = 'abc';
+    var bool = true;
+    var unde;
+    var str2 = null;
+
+    //数字和字符串
+    // console.log(num+str); //123abc
+    // console.log(num-str)    //0 NaN
+    // console.log(num*str)    //15129 NaN
+    // console.log(num/str)    //1 NaN
+
+
+    //数字和boolean
+    // console.log(num+bool)   //if(bool = true)124 else bool = false 123
+    // console.log(num-bool)       //if(bool = true)122 else bool = false 123
+    // console.log(num*bool)       //if(bool = true)123  else bool = false 0
+    // console.log(num/bool)        //if(bool = true)123  else bool = false Infinity
+
+
+    //数字和undefind
+    // console.log(num+unde)       //NaN
+    // console.log(num-unde)       //NaN
+    // console.log(num*unde)       //NaN
+    // console.log(num/unde)       //NaN
+
+
+    //数字和null
+    // console.log(num+str2)       //123
+    // console.log(num-str2)       //123
+    // console.log(num*str2)       //0
+    // console.log(num/str2)       //Infinity
+
+    //字符串和boolean
+    // console.log(str+bool)       //if(bool = true)abctrue else bool = false abcfalse
+    // console.log(str-bool)       //NaN
+    // console.log(str*bool)       //NaN
+    // console.log(str/bool)       //NaN
+
+    //字符串和undefined
+    // console.log(str+unde)       //abcundefined
+    // console.log(str-unde)       //NaN
+    // console.log(str*unde)       //NaN
+    // console.log(str/unde)       //NaN
+
+    //字符串和null
+    // console.log(str+str2)       //abcnull
+    // console.log(str-str2)       //NaN
+    // console.log(str*str2)       //NaN
+    console.log(str/str2)       //
+</script>
+</html>

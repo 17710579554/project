@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bDiv1 {
+            width: 100px;
+            height: 50px;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid #ffffff;
+        }
+        .bDiv2 {
+            width: 100px;
+            height: 50px;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid black;
+        }
+        .bDiv3 {
+            width: 100px;
+            height: 50px;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid black;
+        }
+        .bDiv1 .sDiv1 {
+            width: 500px;
+            height: 300px;
+            background-color: red;
+            position: fixed;
+            left: 110px;
+            top: 8px;
+            display: none;
+        }
+        .bDiv2 .sDiv2 {
+            width: 500px;
+            height: 300px;
+            background-color: red;
+            position: fixed;
+            left: 110px;
+            top: 8px;
+            display: none;
+        }
+        .bDiv3 .sDiv3 {
+            width: 500px;
+            height: 300px;
+            background-color: red;
+            position: fixed;
+            left: 110px;
+            top: 8px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bDiv1">
+        男装
+        <div class="sDiv1">
+            <div>卫衣</div>
+            <div>毛衣</div>
+            <div>鞋子</div>
+        </div>
+    </div>
+    <div class="bDiv2">
+        女装
+        <div class="sDiv2">
+            <div>连衣裙</div>
+            <div>棉服</div>
+            <div>阔腿裤</div>
+        </div>
+    </div>
+    <div class="bDiv3">
+        童装
+        <div class="sDiv3">
+            <div>羽绒服</div>
+            <div>裤子</div>
+            <div>鞋</div>
+        </div>
+    </div>
+</body>
+<script>
+    var bDiv1 = document.querySelector('.bDiv1')
+    var bDiv2 = document.querySelector('.bDiv2')
+    var bDiv3 = document.querySelector('.bDiv3')
+    var sDiv1 = document.querySelector('.sDiv1')
+    var sDiv2 = document.querySelector('.sDiv2')
+    var sDiv3 = document.querySelector('.sDiv3')
+        bDiv1.onmouseover = function(){
+            sDiv1.style.display = 'block'
+        }
+        bDiv1.onmouseout = function(){
+            sDiv1.style.display = 'none'
+        }
+        bDiv2.onmouseover = function(){
+            sDiv2.style.display = 'block'
+        }
+        bDiv2.onmouseout = function(){
+            sDiv2.style.display = 'none'
+        }
+        bDiv3.onmouseover = function(){
+            sDiv3.style.display = 'block'
+        }
+        bDiv3.onmouseout = function(){
+            sDiv3.style.display = 'none'
+        }
+</script>
+</html>

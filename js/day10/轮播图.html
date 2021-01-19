@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .banner {
+            width: 600px;
+            height: 400px;
+            margin: 50px auto 0;
+            position: relative;
+        }
+
+        .banner_box {
+            width: 600px;
+            height: 400px;
+            position: relative;
+            /* background-color: rosybrown; */
+        }
+
+        .banner_box>img {
+            width: 600px;
+            height: 400px;
+            /* float: left; */
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            /* opacity: 0; */
+
+        }
+
+        .banner_btn {
+            width: 30px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            color: #fff;
+            font-size: 32px;
+            text-align: center;
+            line-height: 60px;
+            cursor: pointer;
+            display: none;
+            transition: 0.3s;
+        }
+
+        .banner_btn_left {
+            left: 0;
+        }
+
+        .banner_btn_right {
+            right: 0;
+        }
+
+        .banner:hover .banner_btn {
+            display: block;
+        }
+
+        .banner_point {
+            width: 125px;
+            height: 15px;
+
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -62px;
+        }
+
+        .banner_point_child {
+            width: 15px;
+            height: 15px;
+            background-color: #e5e5e5;
+            border-radius: 15px;
+            float: left;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .banner_point_active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="banner_box">
+            <img src="../img/微信图片_20201221134451.jpg" alt="">
+            <img src="../img/微信图片_202012211344511.jpg" alt="">
+            <img src="../img/微信图片_202012211344512.jpg" alt="">
+            <img src="../img/微信图片_202012211344513.jpg" alt="">
+            <img src="../img/微信图片_202012211344514.jpg" alt="">
+        </div>
+        <div class="banner_point">
+            <div class="banner_point_child"></div>
+            <div class="banner_point_child"></div>
+            <div class="banner_point_child"></div>
+            <div class="banner_point_child"></div>
+            <div class="banner_point_child"></div>
+        </div>
+        <div class="banner_btn_left banner_btn">
+            < </div>
+                <div class="banner_btn_right banner_btn">></div>
+        </div>
+</body>
+<script>
+    window.onload = function () {
+        var initNum = 0 // 初始值
+        var interVal = null
+        var imgList = document.querySelectorAll('.banner_box img')
+        var pointList = document.querySelectorAll('.banner_point_child')
+        var oBanner = document.querySelector(".banner")
+        // 初始化第一张显示的图片
+        imgList[initNum].style.display = "block"
+        // 给小点 初始化 让第一个显示成其他颜色（通过setAttribute 设置class 
+        pointList[initNum].setAttribute("class", 'banner_point_child banner_point_active')
+
+        var toRight = document.querySelector(".banner_btn_right")
+        var toLeft = document.querySelector(".banner_btn_left")
+        toRight.onclick = function () { change(++initNum) }
+        toLeft.onclick = function () { change(--initNum) }
+
+        function change(index) {
+            // var initNum = initNum
+            // 变更初始值
+            initNum = index
+            // 初始值得取值范围限定
+            if (initNum > imgList.length - 1) {
+                initNum = 0
+            }
+            if (initNum < 0) {
+                initNum = imgList.length - 1
+            }
+            // 循环 进行排他操作
+            for (var i = 0; i < imgList.length; i++) {
+                imgList[i].style.display = "none"
+                pointList[i].setAttribute("class", 'banner_point_child')
+            }
+            // 让我需要的图片显示出来
+            imgList[initNum].style.display = "block"
+            //  让对应位置的小点 改变样式
+            pointList[initNum].setAttribute("class", 'banner_point_child banner_point_active')
+            // console.log(imgList)
+
+        }
+
+        // 点击小点 ，对小点进行循环绑定事件
+        for (var i = 0; i < pointList.length; i++) {
+            pointList[i].index = i
+            pointList[i].onclick = function () {
+                change(this.index)
+            }
+        }
+        // 定义自动切换方法
+        function inter() {
+            interVal = setInterval(function () {
+                change(++initNum)
+            }, 1000)
+        }
+        inter()
+        // 鼠标移入时停止自动切换
+        oBanner.onmouseenter = function () {
+            clearInterval(interVal)
+        }
+        // 鼠标移出后自动播放
+        oBanner.onmouseleave = function () {
+            inter()
+        }
+    }
+</script>
+
+</html>

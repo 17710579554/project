@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrapper {
+            width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            height: 100px;
+            background-color: #f00;
+        }
+        nav {
+            height: 30px;
+            background-color: #0f0;
+            margin: 5px 0;
+        }
+        footer {
+            height: 60px;
+            background-color: blue;
+            margin-top: 5px;
+        }
+        .left_aside {
+            width: 200px;
+            height: 500px;
+            background-color: purple;
+            float: left;
+        }
+        article {
+            width: 490px;
+            height: 500px;
+            background-color: yellow;
+            float: left;
+            margin-left: 5px;
+        }
+        .right_aside {
+            width: 200px;
+            height: 500px;
+            float: right;
+        }
+        .right_aisde_top {
+            height: 207px;
+            background-color: #f00;
+            margin-bottom: 5px;
+        }
+        .right_aisde_bottom {
+            height: 288px;
+            background-color: green;
+        }
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header></header>
+        <nav></nav>
+        <div class="main clearfix">
+            <aside class="left_aside"></aside>
+            <article></article>
+            <aside class="right_aside">
+                <div class="right_aisde_top"></div>
+                <div class="right_aisde_bottom"></div>
+            </aside>
+        </div>
+        <footer></footer>
+    </div>
+</body>
+</html>

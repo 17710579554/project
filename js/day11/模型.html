@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //构造函数
+    Date.prototype.format =function(){
+    var year =this.getFullYear()
+    var moth =buling(this.getMonth()+1,2)
+    var date =buling(this.getDate(),2)
+    var hours =buling(this.getHours(),2)
+    var min =buling(this.getMinutes(),2)
+    var second = buling(this.getSeconds(),2)
+    return year+'-'+month+"-"+date+" "+hours+":"+min+":"+second
+
+    }
+    function buling(value,num){
+        var newValue ="000000000000" + value
+        return newValue.slice(-num)
+    }
+    console.log(Date.prototype)
+    setInterval(function(){
+        var myDate = new Date()
+        var oClock =document.querySelector(".clock")
+        oClock.innerText = myDate.format()
+        //console.log()
+    },1000)
+</script>
+</html>

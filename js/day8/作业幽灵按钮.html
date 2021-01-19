@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        .wrap {
+            width: 300px;
+            margin-left: 600px;
+            margin-top: 100px;
+            height: 200px;
+            line-height: 80px;
+            text-align: center;
+            color: #fff;
+            background-color: aqua;
+            font-size: 36px;
+            font-weight: bold;
+            position: relative;
+            transition: 1s;
+        }
+
+        .wrap .top,
+        .wrap .bottom {
+            width: 0;
+            height: 5px;
+            background-color: aqua;
+            position: absolute;
+            transition: 1s;
+        }
+
+        .wrap .top {
+            top: 0;
+            left: 0
+        }
+
+        .wrap .bottom {
+            bottom: 0;
+            right: 0
+        }
+
+        .wrap:hover .top,
+        .wrap:hover .bottom {
+            width: 100%;
+        }
+
+        .wrap:hover {
+            background-color: blue;
+            color: #105069;
+        }
+
+        .pure-material-button-outlined {
+            position: relative;
+            display: inline-block;
+            box-sizing: border-box;
+            border: solid 1px;
+            border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.24);
+            border-radius: 4px;
+            padding: 0 16px;
+            min-width: 64px;
+            height: 36px;
+            vertical-align: middle;
+            text-align: center;
+            text-overflow: ellipsis;
+            text-transform: uppercase;
+            color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+            background-color: transparent;
+            font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 34px;
+            overflow: hidden;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .pure-material-button-outlined::-moz-focus-inner {
+            border: none;
+        }
+
+        /* Overlay */
+
+        .pure-material-button-outlined::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: currentColor;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        /* Ripple */
+
+        .pure-material-button-outlined::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 50%;
+            padding: 50%;
+            width: 32px;
+            height: 32px;
+            background-color: currentColor;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1);
+            transition: opacity 1s, transform 0.5s;
+        }
+
+        /* Hover, Focus */
+
+        .pure-material-button-outlined:hover::before {
+            opacity: 0.04;
+        }
+
+        .pure-material-button-outlined:focus::before {
+            opacity: 0.12;
+        }
+
+        .pure-material-button-outlined:hover:focus::before {
+            opacity: 0.16;
+        }
+
+        /* Active */
+
+        .pure-material-button-outlined:active::after {
+            opacity: 0.16;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0s;
+        }
+
+        /* Disabled */
+
+        .pure-material-button-outlined:disabled {
+            color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+            background-color: transparent;
+            cursor: initial;
+        }
+
+        .pure-material-button-outlined:disabled::before {
+            opacity: 0;
+        }
+
+        .pure-material-button-outlined:disabled::after {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="wrap">
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </button>
+        
+    <!-- <button class="pure-material-button-outlined">Button</button> -->
+</body>
+<script>
+    window.onload = function () {
+        var wrap = document.querySelector(".wrap");
+        var divs = wrap.getElementsByTagName('div');
+        wrap.onmouseover = function () {
+            divs[0].style.width = "100%";
+            divs[1].style.width = "100%";
+            wrap.style.backgroundColor = "#15afc7";
+            wrap.style.color = "#105069";
+        };
+        wrap.onmouseout = function () {
+            divs[0].style.width = 0;
+            divs[1].style.width = 0;
+            wrap.style.backgroundColor = "#105069";
+            wrap.style.color = "#fff";
+        }  
+    }
+</script>
+
+</html>

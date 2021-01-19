@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            float: right;
+        }
+        .green {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            float: right;
+        }
+        .blue {
+            width: 100px;
+            height: 200px;
+            background-color: blue;
+            float: right;
+        }
+        .box {
+            width: 400px;
+            border: 5px solid purple;
+            /* height: 500px; */
+            /* overflow: hidden; */
+        }
+        .clearFloat {
+            clear: both;
+        }
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="box clearfix">
+        <div class="red"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+    </div>
+    <div class="box2">我是页脚我是页脚我是页脚我是页脚</div>
+    <div class="box2 clearfix">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>
